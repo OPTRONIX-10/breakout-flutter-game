@@ -9,7 +9,7 @@ import 'package:flame_game_1/src/components/play_area.dart';
 import 'package:flame_game_1/src/config.dart';
 import 'dart:math' as math;
 
-class BrickBreaker extends FlameGame {
+class BrickBreaker extends FlameGame with HasCollisionDetection{
   BrickBreaker()
       : super(
           camera: CameraComponent.withFixedResolution(
@@ -28,7 +28,7 @@ class BrickBreaker extends FlameGame {
     world.add(PlayArea());
     world.add(Ball(
         velocity:
-            Vector2((rand.nextDouble() - 0.5) * width, height).normalized()
+            Vector2((rand.nextDouble() - 0.5) * width, height * 0.2).normalized()
               ..scale(height / 4),
         position: size / 2,
         radius: ballRadius));
